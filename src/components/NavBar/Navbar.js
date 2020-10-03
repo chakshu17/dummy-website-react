@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import './Navbar.css'
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button,setButton] = useState(true)
@@ -18,13 +19,18 @@ function Navbar() {
     }
   }
 
+  useEffect(()=>{
+    showButton()
+  },[])
+
   window.addEventListener('resize',showButton)
+
   return (
 		<div>
 			<nav className="navbar">
 				<div className="navbar-container">
-					<Link to="/" className="navbar-logo">
-						TRAVEL <i class="fa fa-bandcamp" aria-hidden="true"></i>
+					<Link to="/" className="navbar-logo" onClick={closeMobilemMenu}>
+						TRAVEL &nbsp; <i className="fa fa-bandcamp" aria-hidden="true"></i>
 					</Link>
 					<div className="menu-icon" onClick={handleClick}>
 						<i className={click ? "fa fa-times" : "fa fa-bars"} />

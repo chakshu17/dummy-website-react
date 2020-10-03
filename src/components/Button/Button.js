@@ -14,13 +14,13 @@ function Button({ children, type, onClick, buttonStyle, buttonSize }) {
 	return (
 		<div>
 			<Link to="/" className="btn-mobile">
-				<buttton
+				<button
 					className={`btn ${checkButtonStyle} ${checkButtonSIze}`}
 					onClick={onClick}
 					type={type}
 				>
 					{children}
-				</buttton>
+				</button>
 			</Link>
 		</div>
 	);
